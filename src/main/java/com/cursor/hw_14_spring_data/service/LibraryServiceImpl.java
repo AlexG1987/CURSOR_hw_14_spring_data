@@ -37,8 +37,8 @@ public class LibraryServiceImpl implements LibraryService {
     }
 
     @Override
-    public void deleteBook(long Id) {
-        LibraryRepository.deleteById(Id);
+    public void deleteBook(long id) {
+        LibraryRepository.deleteById(id);
     }
 
     @Override
@@ -53,26 +53,23 @@ public class LibraryServiceImpl implements LibraryService {
 
     @Override
     public void updateBook(long oldBookId, Book book) {
-        Book newBook = new Book();
-        newBook.setId(oldBookId);
-        newBook.setRate(book.getRate());
-        newBook.setGenre(book.getGenre());
-        newBook.setDescription(book.getDescription());
-        newBook.setTitle(book.getTitle());
-        newBook.setAuthor(book.getAuthor());
-        LibraryRepository.deleteById(oldBookId);
-        LibraryRepository.save(newBook);
+        if (LibraryRepository.existsById(oldBookId)) {
+            LibraryRepository.deleteById(oldBookId);
+            LibraryRepository.save(book);
+        } else {
+            LibraryRepository.save(book);
+        }
     }
 
     @Override
     public void updateAuthor(long oldAuthorId, Author author) {
-        Author newAuthor = new Author();
-        newAuthor.setAuthorId(oldAuthorId);
-        newAuthor.setFName(author.getFName());
-        newAuthor.setLName(author.getLName());
-        newAuthor.setBooks(author.getBooks());
-        authorRepo.deleteById(oldAuthorId);
-        authorRepo.save(newAuthor);
+        if (LibraryRepository.existsById(oldAuthorId)) {
+            authorRepo.deleteById(oldAuthorId);
+            authorRepo.save(author);
+        } else {
+            authorRepo.deleteById(oldAuthorId);
+            authorRepo.save(author);
+        }
     }
 
 }

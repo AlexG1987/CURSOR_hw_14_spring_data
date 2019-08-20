@@ -18,11 +18,12 @@ import java.util.List;
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long authorId;
-    @Column(name = "fName", nullable = false)
+    @Column(name = "id")
+    private long id;
+    @Column(name = "f_Name", nullable = false, unique = true, length = 100)
     private String fName;
-    @Column(name = "lName", nullable = false)
+    @Column(name = "l_Name", nullable = false, unique = true, length = 100)
     private String lName;
-    @OneToMany(mappedBy = "author", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "author", cascade = CascadeType.ALL)
     private List<Book> books = new ArrayList<>();
 }

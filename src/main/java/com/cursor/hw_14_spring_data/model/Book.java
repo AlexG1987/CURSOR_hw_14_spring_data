@@ -16,17 +16,18 @@ import javax.persistence.*;
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
-    @Column(name = "title", nullable = false)
+    private long id;
+    @Column(name = "title", nullable = false, unique = true, length = 100)
     private String title;
-    @Column(name = "genre", nullable = false)
+    @Column(name = "genre", nullable = false, unique = true, length = 50)
     private String genre;
-    @Column(name = "description", nullable = false)
+    @Column(name = "description", nullable = false, unique = true, length = 250)
     private String description;
     @Column(name = "rate", nullable = false)
     private double rate;
-    @ManyToOne(fetch = FetchType.LAZY,optional=true)
-    @JoinTable(name = "authors", joinColumns = @JoinColumn(name = "authorId"))
+    //@ManyToOne(fetch = FetchType.LAZY,optional=true)
+    //@JoinTable(name = "authors", joinColumns = @JoinColumn(name = "author_id", referencedColumnName="id", insertable = false, updatable = false))
+    @ManyToOne(cascade = CascadeType.ALL)
     private Author author;
 
 }

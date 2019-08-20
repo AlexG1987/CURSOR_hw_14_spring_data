@@ -13,7 +13,7 @@ public interface LibraryService {
 
     void addBook(Book book);
 
-    void deleteBook(long Id);
+    void deleteBook(long id);
 
     List<Book> getBooksByGenre(String genre);
 

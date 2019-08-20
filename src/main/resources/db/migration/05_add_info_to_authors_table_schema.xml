@@ -1,0 +1,78 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+<changeSet id="1" author="alexander gavrilyuk">
+		<insert tableName="books">
+            <column name="title">Граф монте Крісто</column> 
+			<column name="genre">Роман</column>
+			<column name="description">Історія юнака Едмона Дантеса</column>
+            <column name="rate">9.1</column>
+            <column name="author_id">1</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Гамлет</column> 
+			<column name="genre">П'єса</column>
+			<column name="description">Про помсту принца Гамлета</column>
+            <column name="rate">9.2</column>
+            <column name="author_id">2</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Три товариша</column> 
+			<column name="genre">Драма</column>
+			<column name="description">Історя трьох друзів, що пройшли війну</column>
+            <column name="rate">8.8</column>
+            <column name="author_id">3</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Хроніки нарнії</column> 
+			<column name="genre">Фентезі</column>
+			<column name="description">Розповідається про пригоди дітей у казковій країні під назвою Нарнія</column>
+            <column name="rate">9.5</column>
+            <column name="author_id">4</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Ловець у житі</column> 
+			<column name="genre">Роман</column>
+			<column name="description">Автор знайомить нас з героєм в хвилину гострої моральної кризи</column>
+            <column name="rate">8.5</column>
+            <column name="author_id">5</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Євгеній Онєгін</column> 
+			<column name="genre">Роман</column>
+			<column name="description">У книзі показана драматична доля людей дворянської інтелігенції</column>
+            <column name="rate">8.9</column>
+            <column name="author_id">6</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Володар Мух</column> 
+			<column name="genre">Повість</column>
+			<column name="description">Героями повісті є діти і підлітки, що опинились на незаселеному острові</column>
+            <column name="rate">9.1</column>
+            <column name="author_id">7</column>
+        </insert>
+		<insert tableName="books">
+            <column name="title">Острік скарбів</column> 
+			<column name="genre">Роман</column>
+			<column name="description">Роман про життя піратів</column>
+            <column name="rate">9.3</column>
+            <column name="author_id">8</column>
+        </insert>
+			<insert tableName="books">
+            <column name="title">Темна вежа</column> 
+			<column name="genre">Жахи</column>
+			<column name="description">Роланд — останній живий член королівського ордену Стрільців і останній з роду Артура Ельда</column>
+            <column name="rate">9.6</column>
+            <column name="author_id">9</column>
+        </insert>
+			<insert tableName="books">
+            <column name="title">Собор Паризької богоматері</column> 
+			<column name="genre">Історичний роман</column>
+			<column name="description">Про циганку Есмеральду та горбаня Квазімодо</column>
+            <column name="rate">8.9</column>
+            <column name="author_id">10</column>
+        </insert>	
+  </changeSet>
+</databaseChangeLog>
