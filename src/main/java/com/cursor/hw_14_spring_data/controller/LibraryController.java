@@ -68,7 +68,7 @@ public class LibraryController {
                 .build();
     }
 
-    @PatchMapping("updateAuthor/{id}")
+    @PatchMapping("/updateAuthor/{id}")
     public ResponseEntity updateAuthor(@PathVariable("id") int oldAuthorId, @RequestBody Author author) {
         LibraryServiceImpl.updateAuthor(oldAuthorId, author);
         return ResponseEntity
@@ -76,7 +76,7 @@ public class LibraryController {
                 .build();
     }
 
-    @PatchMapping("updateBook/{id}")
+    @PatchMapping("/updateBook/{id}")
     public ResponseEntity updateBook(@PathVariable("id") int oldBookId, @RequestBody Book book) {
         LibraryServiceImpl.updateBook(oldBookId, book);
         return ResponseEntity
