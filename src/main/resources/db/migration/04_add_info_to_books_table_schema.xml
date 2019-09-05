@@ -1,0 +1,48 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+<changeSet id="4" author="alexander gavrilyuk">
+        <insert tableName="authors">
+            <column name="f_name">Олександр</column>
+            <column name="l_name">Дюма</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Уільям</column>
+            <column name="l_name">Шекспір</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Еріх Марія</column>
+            <column name="l_name">Ремарк</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Клайв Стейплз</column>
+            <column name="l_name">Льюїс</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Джером Девід</column>
+            <column name="l_name">Селінджер</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Олександр</column>
+            <column name="l_name">Пушкін</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Вільям</column>
+            <column name="l_name">Голдінг</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Роберт</column>
+            <column name="l_name">Стівенсон</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Стівен</column>
+            <column name="l_name">Кінг</column>
+        </insert>
+		<insert tableName="authors">
+            <column name="f_name">Віктор</column>
+            <column name="l_name">Гюго</column>
+        </insert>
+  </changeSet>
+</databaseChangeLog>
