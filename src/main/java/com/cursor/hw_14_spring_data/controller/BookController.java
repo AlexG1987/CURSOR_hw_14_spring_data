@@ -1,7 +1,8 @@
 package com.cursor.hw_14_spring_data.controller;
 
 import com.cursor.hw_14_spring_data.model.Book;
-import com.cursor.hw_14_spring_data.service.LibraryServiceImpl;
+import com.cursor.hw_14_spring_data.service.impl.BookServiceImpl;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,16 +11,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
+@RequestMapping("book")
 public class BookController {
 
-    private final LibraryServiceImpl LibraryServiceImpl;
-
     @Autowired
-    public BookController(LibraryServiceImpl LibraryServiceImpl) {
-        this.LibraryServiceImpl = LibraryServiceImpl;
-    }
+    private final BookServiceImpl LibraryServiceImpl;
 
-    @PostMapping("/addBook")
+    @PostMapping("/")
     public ResponseEntity addBook(@RequestBody Book book) {
         LibraryServiceImpl.addBook(book);
         return ResponseEntity
@@ -27,7 +26,7 @@ public class BookController {
                 .build();
     }
 
-    @GetMapping("/sortedBooksByAuthor/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<List<Book>> sortedBooksByAuthor(@PathVariable("id") long id) {
         LibraryServiceImpl.getBooksByAuthor(id);
         return ResponseEntity
@@ -36,7 +35,7 @@ public class BookController {
     }
 
     @ResponseBody
-    @GetMapping("/sortedBooksByGenre/{genre}")
+    @GetMapping("/{genre}")
     public ResponseEntity<List<Book>> sortedBooksByGenre(@PathVariable("genre") String genre) {
         LibraryServiceImpl.getBooksByGenre(genre);
         return ResponseEntity
@@ -44,7 +43,7 @@ public class BookController {
                 .build();
     }
 
-    @DeleteMapping("/deleteBook/{id}")
+    @DeleteMapping("/{id}")
     public ResponseEntity deleteBook(@PathVariable("id") long bookId) {
         LibraryServiceImpl.deleteBook(bookId);
         return ResponseEntity
@@ -52,7 +51,7 @@ public class BookController {
                 .build();
     }
 
-    @PatchMapping("/updateBook/{id}")
+    @PatchMapping("/{id}")
     public ResponseEntity updateBook(@PathVariable("id") int oldBookId, @RequestBody Book book) {
         LibraryServiceImpl.updateBook(oldBookId, book);
         return ResponseEntity
