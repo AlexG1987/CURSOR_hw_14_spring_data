@@ -8,6 +8,6 @@ public interface AuthorService {
 
     void deleteAuthor(long authorId);
 
-    void updateAuthor(long oldAuthorId, Author author);
+    Author updateAuthor(long oldAuthorId, Author author);
 
 }

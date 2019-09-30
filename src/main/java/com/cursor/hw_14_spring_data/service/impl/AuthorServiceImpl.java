@@ -27,13 +27,17 @@ public class AuthorServiceImpl implements AuthorService {
     }
 
     @Override
-    public void updateAuthor(long oldAuthorId, Author author) {
+    public Author updateAuthor(long oldAuthorId, Author newAuthor) {
         if (bookRepository.existsById(oldAuthorId)) {
             authorRepo.deleteById(oldAuthorId);
-            authorRepo.save(author);
+            Author author = new Author();
+            author.setBooks(newAuthor.getBooks());
+            author.setLName(newAuthor.getLName());
+            author.setFName(newAuthor.getFName());
+            author.setId(oldAuthorId);
+            return authorRepo.save(author);
         } else {
-            authorRepo.deleteById(oldAuthorId);
-            authorRepo.save(author);
+            return authorRepo.save(newAuthor);
         }
     }
 
